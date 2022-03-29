@@ -31,23 +31,36 @@ char game_board(){
     cout << "\n";
 }
 
+char game_switch = 'y';
 char answer;
 int row_select;
 int col_select;
 
 // A simple program to test a conditional statement
 int main() {
-    cout << "Welcome to Tic-Tac-Toe. You will be playing a CPU! \n";
-    cout << "Let's display the board\n";
-    game_board();
-    // Player selects X's or O's
-    cout << "Which would you like X's or O's?: ";
-    cin >> answer;
-    cout << "\nGreat! Now let's play. Select the row of your first move: ";
-    cin >> row_select;
-    cout << "\nNow select the column to place your move.:  ";
-    cin >> col_select;
+    while(game_switch == 'y') {
+        cout << "Welcome to Tic-Tac-Toe. You will be playing a CPU! \n";
+        cout << "Let's display the board\n";
+        game_board();
+        // Player selects X's or O's
+        cout << "Which would you like X's or O's?: ";
+        cin >> answer;
+        cout << "\nGreat! Now let's play. Select the row of your first move: ";
+        cin >> row_select;
+        cout << "\nNow select the column to place your move.:  ";
+        cin >> col_select;
 
+        if (row_select == 1) {
+            row_one[col_select] = answer;
+        } else if (row_select == 2) {
+            row_two[col_select] = answer;
+        } else {
+            row_three[col_select] = answer;
+        }
 
+        game_board();
+        cout << "Would you like to play again? y or n: ";
+        cin >> game_switch;
+    }
     return 0;
 }
